@@ -1,1 +1,6 @@
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/Crawler.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/impl/WebCrawlerImpl.java
 /home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/Launcher.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/impl/FileCrawlerImpl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/impl/DBCrawlerImpl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/Utils/PropertyUtils.java

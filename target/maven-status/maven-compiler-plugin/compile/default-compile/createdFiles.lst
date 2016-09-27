@@ -1,1 +1,6 @@
 com/pramati/crawler/Launcher.class
+com/pramati/crawler/crawlers/impl/DBCrawlerImpl.class
+com/pramati/crawler/crawlers/Crawler.class
+com/pramati/crawler/crawlers/impl/FileCrawlerImpl.class
+com/pramati/crawler/Utils/PropertyUtils.class
+com/pramati/crawler/crawlers/impl/WebCrawlerImpl.class
