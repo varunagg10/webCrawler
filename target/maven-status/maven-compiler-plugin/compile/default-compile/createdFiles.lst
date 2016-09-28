@@ -1,6 +1,11 @@
 com/pramati/crawler/Launcher.class
-com/pramati/crawler/crawlers/impl/DBCrawlerImpl.class
-com/pramati/crawler/crawlers/Crawler.class
-com/pramati/crawler/crawlers/impl/FileCrawlerImpl.class
-com/pramati/crawler/Utils/PropertyUtils.class
-com/pramati/crawler/crawlers/impl/WebCrawlerImpl.class
+com/pramati/crawler/downloader/api/DocumentDownloader.class
+com/pramati/crawler/Utils/UserInputHelper.class
+com/pramati/crawler/exceptions/BusinesssException.class
+com/pramati/crawler/service/impl/HandleCrawlImpl.class
+com/pramati/crawler/service/api/HandleCrawl.class
+com/pramati/crawler/downloader/impl/WebPageDownloadImpl.class
+com/pramati/crawler/service/facade/impl/DocumentParsingFacadeImpl.class
+com/pramati/crawler/downloader/impl/FileDownloadImpl.class
+com/pramati/crawler/service/facade/DocumentParsingFacade.class
+com/pramati/crawler/downloader/impl/DBDownloaderImpl.class

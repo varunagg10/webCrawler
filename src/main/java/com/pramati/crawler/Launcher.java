@@ -1,22 +1,27 @@
 package com.pramati.crawler;
 
+import com.pramati.crawler.exceptions.BusinesssException;
 import com.pramati.crawler.service.api.HandleCrawl;
 import com.pramati.crawler.service.impl.HandleCrawlImpl;
+import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.io.FileNotFoundException;
 
-/**
- * Created by varuna on 27/9/16.
- */
 @Component
 public class Launcher {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    static Logger logger = Logger.getLogger(Launcher.class);
+
+    public static void main(String[] args) {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        ctx.getBeanDefinitionNames();
-        HandleCrawl handleCrawl=(HandleCrawlImpl)ctx.getBean("handleCrawlImpl");
-        handleCrawl.parseDocument();
+        HandleCrawl handleCrawl = (HandleCrawlImpl)ctx.getBean("handleCrawlImpl");
+        try {
+            handleCrawl.parseDocument();
+        } catch (BusinesssException e) {
+            logger.error(e);
+        }finally {
+            ctx.close();
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.pramati.crawler.downloader.impl;
 
 
 import com.pramati.crawler.downloader.api.DocumentDownloader;
+import com.pramati.crawler.model.DocumentContainer;
 
 /**
  * Created by varuna on 27/9/16.
@@ -10,7 +11,7 @@ import com.pramati.crawler.downloader.api.DocumentDownloader;
 public class DBDownloaderImpl  implements DocumentDownloader{
 
 
-    public void Download() {
-
+    public DocumentContainer download(String source) {
+        return new DocumentContainer();
     }
 }

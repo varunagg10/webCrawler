@@ -1,6 +1,11 @@
-/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/Crawler.java
-/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/impl/WebCrawlerImpl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/service/api/HandleCrawl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/service/facade/impl/DocumentParsingFacadeImpl.java
 /home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/Launcher.java
-/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/impl/FileCrawlerImpl.java
-/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/crawlers/impl/DBCrawlerImpl.java
-/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/Utils/PropertyUtils.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/service/facade/DocumentParsingFacade.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/downloader/impl/DBDownloaderImpl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/exceptions/BusinesssException.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/Utils/UserInputHelper.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/downloader/impl/FileDownloadImpl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/downloader/impl/WebPageDownloadImpl.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/downloader/api/DocumentDownloader.java
+/home/varuna/IdeaProjects/webCrawlerGit/src/main/java/com/pramati/crawler/service/impl/HandleCrawlImpl.java

@@ -1,11 +1,10 @@
 package com.pramati.crawler.downloader.api;
 
-/**
- * Created by varuna on 27/9/16.
- */
+import com.pramati.crawler.exceptions.BusinesssException;
+import com.pramati.crawler.model.DocumentContainer;
 
 public interface DocumentDownloader {
 
 
-    public void Download();
+    public DocumentContainer download(String source) throws BusinesssException;
 }
