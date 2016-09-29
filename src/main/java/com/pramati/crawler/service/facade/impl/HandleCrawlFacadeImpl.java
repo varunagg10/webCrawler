@@ -32,6 +32,8 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("MMM yyyy");
 
+
+
     @Value("${maxAttempts}")
     private int maxAttempts;
 
