@@ -16,11 +16,11 @@ public class WebPageDownloadImpl implements DocumentDownloader{
     public DocumentContainer download(String source) throws BusinesssException{
         Document doc;
         DocumentContainer container = new DocumentContainer();
+        logger.debug("downloading from web url:"+source);
         try {
             doc = Jsoup.connect(source).get();
-            System.out.println("crawling web " + source);
         }catch(Exception e){
-            logger.error(e);
+            logger.error("Exception occured while downloading document form web URL "+source,e);
             throw new BusinesssException("Exception occured while downloading document form web URL "+source,e);
         }
         container.setDoc(doc);

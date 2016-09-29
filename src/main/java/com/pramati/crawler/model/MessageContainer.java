@@ -4,6 +4,7 @@ public class MessageContainer {
 
     String body;
     String subject;
+    String date;
 
     public String getBody() {
         return body;
@@ -19,5 +20,13 @@ public class MessageContainer {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

@@ -1,4 +1,4 @@
-package com.pramati.crawler.Utils;
+package com.pramati.crawler.utils;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
