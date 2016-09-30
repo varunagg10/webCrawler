@@ -11,6 +11,7 @@ import com.pramati.crawler.utils.UserInputHelper;
 import org.apache.log4j.Logger;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +33,11 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("MMM yyyy");
 
+    @Value("${filePath}")
+    private String filePath;
 
+    @Value("${fileEncoding}")
+    private String encoding;
 
     @Value("${maxAttempts}")
     private int maxAttempts;
@@ -41,10 +46,16 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
     @Qualifier("webPageDownloadImpl")
     private DocumentDownloader documentDownloader;
 
-    public String parseMessagesLinkForDateFromDoc(Date date, DocumentContainer docCont) {
+    public String parseMessagesLinkForDateFromDoc(Date date, DocumentContainer docCont) throws BusinesssException {
         Document doc = docCont.getDoc();
         String dt = sdf.format(date);
-        String nextUrl = doc.select(".date").select(":contains("+dt+")").parents().first().select("a[href]").first().attr("href");
+        Elements elements = doc.select(".date").select(":contains("+dt+")");
+        if (elements.size()==0){
+            logger.error("No records found for entered date :"+ dt);
+            System.out.println("No records found for entered date :"+ dt);
+            throw new BusinesssException("No records found for entered date :"+ dt);
+        }
+        String nextUrl = elements.parents().first().select("a[href]").first().attr("href");
         return nextUrl;
     }
 
@@ -71,6 +82,13 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
         return elements;
     }
 
+    public void writeMsgToFile(MessageContainer messageContainer) throws BusinesssException {
+        String fileName = messageContainer.getSubject()+":::"+messageContainer.getDate();
+        fileName = filePath +"/" + EncodingHelper.encodeFileName(fileName,encoding);
+
+        FileIOHelper.writeFileToDisk(fileName,messageContainer.getBody());
+    }
+
     public Date getDateFromUser() throws BusinesssException {
         System.out.println("Please enter the month and year in mm/yyyy format between 1900 to 2199");
         String input = UserInputHelper.inputFromConsole();
@@ -89,6 +107,8 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
         }
         return parseStringToDate(input);
     }
+
+
 
     private Date parseStringToDate(String inputDate) throws BusinesssException {
         DateFormat sourceFormat = new SimpleDateFormat("MM/yyyy");
