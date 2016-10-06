@@ -48,14 +48,18 @@ public class HandleCrawlImpl implements HandleCrawl {
         es = Executors.newFixedThreadPool(threadPoolSize);
     }
 
-    public void parseDocument() throws BusinesssException{
+    public void parseDocument() throws BusinesssException {
         Date date = handleCrawlFacade.getDateFromUser();
+        downloadMessageforMonthAndYear(date);
+    }
+
+    public void downloadMessageforMonthAndYear(Date date) throws BusinesssException{
         DocumentContainer doc = documentDownloader.download(baseURL+"/"+URL);
         String msgURL = handleCrawlFacade.parseMessagesLinkForDateFromDoc(date,doc);
 
         msgURL = baseURL+"/"+URL+msgURL;
         downloadAndSaveMsgsFromPageURL(msgURL);
-        es.shutdown();
+        es.shutdown();                              //wont shutdown in a live application
         System.out.println("done");
     }
 
@@ -63,7 +67,7 @@ public class HandleCrawlImpl implements HandleCrawl {
         System.out.println("downloading msgs from : "+ msgURL);
 
         DocumentContainer doc = documentDownloader.download(msgURL);
-        List<Element> elements = handleCrawlFacade.extractElementsFromDoc(msgURL,doc);
+        List<Element> elements = handleCrawlFacade.extractElementsFromDoc(doc);
 
         for (Element e:elements){
             es.submit(new DownloadAndSaveMsgJob(msgURL,e,handleCrawlFacade));

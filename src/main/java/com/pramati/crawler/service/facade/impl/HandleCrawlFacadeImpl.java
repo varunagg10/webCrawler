@@ -75,7 +75,7 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
         return messageContainer;
     }
 
-    public List<Element> extractElementsFromDoc(String msgURL, DocumentContainer docCon) throws BusinesssException {
+    public List<Element> extractElementsFromDoc(DocumentContainer docCon) throws BusinesssException {
         List<MessageContainer> messageContainers = null;
         Document doc = docCon.getDoc();
         List<Element> elements = doc.select("a[href*=@]");
@@ -110,7 +110,7 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
 
 
 
-    private Date parseStringToDate(String inputDate) throws BusinesssException {
+    public Date parseStringToDate(String inputDate) throws BusinesssException {
         DateFormat sourceFormat = new SimpleDateFormat("MM/yyyy");
         Date date = null;
         try {
@@ -122,8 +122,8 @@ public class HandleCrawlFacadeImpl implements HandleCrawlFacade {
         return date;
     }
 
-    private boolean validateInput(String input) throws BusinesssException {
-        String pattern= "^(0[1-9]|1[0-2])/(19|2[0-1])\\d{2}$";
+    public boolean validateInput(String input) {
+        String pattern= "^([1-9]|0[1-9]|1[0-2])/(19|2[0-1])\\d{2}$";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(input);
         return m.matches();

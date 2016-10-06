@@ -12,11 +12,15 @@ public interface HandleCrawlFacade {
 
     public  Date getDateFromUser() throws BusinesssException;
 
+    public Date parseStringToDate(String inputDate) throws BusinesssException;
+
     public String parseMessagesLinkForDateFromDoc(Date date, DocumentContainer docCon) throws BusinesssException;
 
     public MessageContainer extractMessagesFromDoc(String msgURL, Element element) throws BusinesssException;
 
-    public List<Element> extractElementsFromDoc(String msgURL, DocumentContainer doc) throws BusinesssException;
+    public List<Element> extractElementsFromDoc( DocumentContainer doc) throws BusinesssException;
 
     public void writeMsgToFile(MessageContainer messageContainer) throws BusinesssException;
+
+    public boolean validateInput(String input);
 }
